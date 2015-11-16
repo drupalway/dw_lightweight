@@ -1,0 +1,20 @@
+---
+  - name: Check if Vagrant is already installed
+    stat:
+      path: /usr/bin/vagrant
+      register: vagrant
+
+  - name: Download Vagrant for Ubuntu 14.04 x64
+    when: vagrant.stat.exist == false
+    get_url:
+      url: "{{ vagrant_download_url }}"
+      dest: "{{ vagrant_destination_path }}"
+      mode: 0777
+    register: vagrant_downloaded
+
+  - name: Install Vagrant
+    when: vagrant_downloaded
+    apt:
+      deb: "{{ vagrant_destination_path }}"
+    register: vagrant_installed
+    sudo: yes

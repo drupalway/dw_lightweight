@@ -1,0 +1,20 @@
+---
+  - name: Check if VirtualBox already installed
+    stat:
+      path: /usr/bin/virtualbox
+    register: virtualbox
+
+  - name: Download VirtualBox for Ubuntu 14.04 x64
+    when: virtualbox.stat.exist == false
+    get_url:
+      url: "{{ virtualbox_download_url }}"
+      dest: "{{ virtualbox_destination_path }}"
+      mode: 0777
+    register: virtualbox_downloaded
+
+  - name: Install VirtualBox
+    when: virtualbox_downloaded
+    apt:
+      deb: "{{ virtualbox_destination_path }}"
+    register: virtualbox_installed
+    sudo: yes
