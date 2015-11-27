@@ -1,0 +1,6 @@
+---
+- name: Install FileZilla
+  apt:
+    name: filezilla
+    state: latest
+  sudo: yes
