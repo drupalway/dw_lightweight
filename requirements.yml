@@ -1,0 +1,6 @@
+---
+- src: sivel.sshpass
+- src: devbox.chrome
+- src: geerlingguy.git
+- src: geerlingguy.composer
+- src: geerlingguy.java

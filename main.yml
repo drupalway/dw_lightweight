@@ -4,7 +4,11 @@
   sudo: yes
   roles:
     - terminal
-    - chrome
+    - sivel.sshpass
+    - devbox.chrome
+    - geerlingguy.git
+    - geerlingguy.composer
+    - geerlingguy.java
     - grafics
     - filezilla
     - virtualbox

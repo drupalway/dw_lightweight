@@ -1,4 +1,0 @@
----
-apt_file: /etc/apt/sources.list.d/google-chrome.list
-flashplugin_url: http://archive.canonical.com/ubuntu/pool/partner/a/adobe-flashplugin/adobe-flashplugin_20151110.1-0wily1_amd64.deb
-flashplugin_deb_path: /tmp/adobe-flashplugin.deb
