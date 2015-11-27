@@ -3,5 +3,6 @@
   connection: local
   sudo: yes
   roles:
+    - chrome
     - virtualbox
     - vagrant
