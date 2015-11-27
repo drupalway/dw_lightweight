@@ -3,6 +3,7 @@
   connection: local
   sudo: yes
   roles:
+    - terminal
     - chrome
     - grafics
     - filezilla
