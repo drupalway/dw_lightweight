@@ -4,5 +4,6 @@
   sudo: yes
   roles:
     - chrome
+    - grafics
     - virtualbox
     - vagrant
