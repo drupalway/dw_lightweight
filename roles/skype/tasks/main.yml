@@ -1,0 +1,22 @@
+---
+
+- name: Install non-standard architectures package
+  sudo: yes
+  shell: "echo 'foreign-architecture i386' > /etc/dpkg/dpkg.cfg.d/multiarch"
+  when: ansible_userspace_bits == "64"
+
+- name: Add architecture for x64 systems
+  sudo: yes
+  shell: "dpkg --add-architecture i386"
+  when: ansible_userspace_bits == "64"
+
+- name: Install Skype
+  command: "sudo sh {{ ansible_env.PWD }}/roles/skype/files/install_skype.sh"
+  args:
+    creates: /usr/share/skype
+
+- name: Add Skype to autostart.
+  file:
+    src: /usr/share/applications/skype.desktop
+    path: /etc/xdg/autostart/skype.desktop
+    state: link
